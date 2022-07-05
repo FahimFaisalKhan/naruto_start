@@ -1,0 +1,46 @@
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+/* setting root font-size*/
+html{
+    font-size: 62.5%;  /*This defines what ! rem is,
+     I want to be 10 px which is 10/default16=.625*/
+
+    //  @include respond-phone{
+    //      font-size: 50%;
+    //  }
+   
+    @include respond(tab-land){
+        font-size: 56.25%;
+    }
+     @include respond(tab-port){
+        font-size: 50%;
+    }
+    //  @include respond(phone){
+    //      font-size: 30%;
+    //  }
+    @include respond(big-desktop){
+        font-size: 75%;
+    }
+}
+
+/* adding over all font property 
+inside body because fonts are inherited
+all the childs of body willl inherit it's font-family*/
+
+body{
+  /* cross browser reset  to remove by efault browser adding margin padding
+border-box: so bordrers and the padding are no longer added to 
+the total width and the total height of the box
+padding , border will be includd in the total height , width*/
+
+    box-sizing: border-box;
+    padding: 3rem;
+    @include respond(tab-port){
+        padding: 0;
+    }
+}
